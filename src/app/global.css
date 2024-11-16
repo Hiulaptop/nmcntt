@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.intro{
+    position: relative;
+    margin: auto;
+}
+
+.intro path {
+
+    
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: introAnimation 4s ease-in-out 1 forwards;
+}
+
+@keyframes introAnimation {
+    0% {
+        stroke-dashoffset: 50;
+    }
+
+    80% {
+        fill: transparent;
+        stroke-dasharray: 400;
+    }
+
+    100% {
+        fill: #fff;
+        stroke-dashoffset: 0;
+    }
+}
+
+.info {
+    animation: infoAnimation 0.1s ease-in-out 1 forwards;
+}
+
+@keyframes infoAnimation {
+    0% {
+        scale: 0;
+    }
+
+    100% {
+        scale: 100%;
+    }
+}
+
+.a {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    position: absolute;
+    background-image: url('../img/bg.jpg');
+    /* filter: brightness(.5); */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.introbg {
+    position: relative;
+    width: 100vw;
+    height: auto;
+}
+
+.introbg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../img/bg.jpg');
+    filter: brightness(.5);
+    z-index: -1;
+    pointer-events: none;
+    /* filter: grayscale(100%); */
+}
+
+.card{
+    position: fixed;
+    top:0;
+    /* left: 100%;*/
+    right: 0;
+    width: 500px;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.active .card{
+    left: calc(100% - 500px);
+}
+
+.active .container{
+    transform: translateX(-200px);
+ }
