@@ -2,10 +2,10 @@
 import { useCartStore } from "@/store/cartStore";
 import { Asset, Keyboard, Keycap, Product, Switch } from "@/types";
 import Image from 'next/image'
-import Info from "./infoproduct";
+import {Info_Keyboard, Info_Keycap, Info_Switch} from "./infoproduct";
 import { useState } from "react";
 
-export function ProductCard_keyboard({product}: {product: (Keyboard | Switch | Keycap) & Asset}){
+export function ProductCardKeyboard({product, key}: {product: Keyboard & Asset, key: string}){
     const addToCart = useCartStore((state) => state.addToCart)
     const [info, setInfo] = useState(true)
 	function handleinfo(){
@@ -25,16 +25,74 @@ export function ProductCard_keyboard({product}: {product: (Keyboard | Switch | K
                         {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
                     </div>
                 </div>
-                <button onClick={() => addToCart({product: product,quantity: 1, type: ""})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
+                <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
                     <p>Thêm vào giỏ hàng</p> 
                 </button>
             </div>
-            <Info isHidden={info} onExit={handleinfo} product={{product: product, quantity: 1, type: ""}}></Info>
+            <Info_Keyboard isHidden={info} onExit={handleinfo} product={product} type={key}></Info_Keyboard>
+        </>
+    );
+}
+export function ProductCardKeycap({product, key}: {product: Keycap & Asset, key: string}){
+    const addToCart = useCartStore((state) => state.addToCart)
+    const [info, setInfo] = useState(true)
+	function handleinfo(){
+		setInfo(!info);
+	}
+    return(
+        <>
+            <div className="flex flex-col h-auto min-h-80 p-2 gap-2 rounded-xl shadow-2xl hover:bg-slate-300">
+                <div onClick={handleinfo} className={`flex flex-col h-80 min-h-80 p-2 gap-2 hover:bg-slate-300`}>
+                    <div id="img" className="h-[58%] w-full select-none">
+                        <Image id={product.name} src={product.profile.url} draggable={false}  alt={product.shortName} height="1000" width="1000" className="h-full w-full rounded-xl hover:scale-105 duration-300 border-1 border-black"/>
+                    </div>
+                    <div id="name" className="flex-1 line-clamp-2 w-full h-24 font-bold text-lg text-center break-words select-none">
+                        {product.name}  
+                    </div>
+                    <div id="price" className="w-full text-xs text-center select-none">
+                        {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
+                    </div>
+                </div>
+                <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
+                    <p>Thêm vào giỏ hàng</p> 
+                </button>
+            </div>
+            <Info_Keycap isHidden={info} onExit={handleinfo} product={product} type={key}></Info_Keycap>
+            
+        </>
+    );
+}
+export function ProductCardSwitch({product, key}: {product: Switch & Asset, key: string}){
+    const addToCart = useCartStore((state) => state.addToCart)
+    const [info, setInfo] = useState(true)
+	function handleinfo(){
+		setInfo(!info);
+	}
+    return(
+        <>
+            <div className="flex flex-col h-auto min-h-80 p-2 gap-2 rounded-xl shadow-2xl hover:bg-slate-300">
+                <div onClick={handleinfo} className={`flex flex-col h-80 min-h-80 p-2 gap-2 hover:bg-slate-300`}>
+                    <div id="img" className="h-[58%] w-full select-none">
+                        <Image id={product.name} src={product.profile.url} draggable={false}  alt={product.shortName} height="1000" width="1000" className="h-full w-full rounded-xl hover:scale-105 duration-300 border-1 border-black"/>
+                    </div>
+                    <div id="name" className="flex-1 line-clamp-2 w-full h-24 font-bold text-lg text-center break-words select-none">
+                        {product.name}  
+                    </div>
+                    <div id="price" className="w-full text-xs text-center select-none">
+                        {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
+                    </div>
+                </div>
+                <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
+                    <p>Thêm vào giỏ hàng</p> 
+                </button>
+            </div>
+            <Info_Switch isHidden={info} onExit={handleinfo} product={product} type={key}></Info_Switch>
+            
         </>
     );
 }
 
-export function ProductCard({product}: {product: Product}){
+export function ProductCard({product, key}: {product: Product, key: string}){
     const addToCart = useCartStore((state) => state.addToCart)
     const reduceQuantity = useCartStore((state) => state.reduceQuantity)
     return(

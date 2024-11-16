@@ -29,7 +29,7 @@ export function Cart() {
 			<Drawer isOpen={isDrawerOpen} onCartIconClick={() => setIsDrawerOpen(!isDrawerOpen)}>
 				<div className="flex flex-col gap-4">
 					{cart?.map(product => (
-						<ProductCard product={product}/>
+						<ProductCard product={product} key={product.type}/>
 					))}
 				</div>
 				<div className='flex mt-auto w-full justify-between items-center'>

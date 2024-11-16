@@ -5,16 +5,16 @@
 .intro{
     position: relative;
     margin: auto;
+    
 }
 
 .intro path {
-
-    
     fill: transparent;
     stroke: #fff;
     stroke-width: 2;
     stroke-dasharray: 50;
     stroke-dashoffset: 50;
+    scale: 150%;
     animation: introAnimation 4s ease-in-out 1 forwards;
 }
 
@@ -70,6 +70,17 @@
     position: relative;
     width: 100vw;
     height: auto;
+    animation: introbgAnimation 2s ease-in-out 1 forwards;
+}
+
+@keyframes introbgAnimation {
+    0% {
+        scale: 150%;
+    }
+
+    100% {
+        scale: 100%;
+    }
 }
 
 .introbg::before {
@@ -82,7 +93,7 @@
     background-size: cover;
     background-position: center;
     background-image: url('../img/bg.jpg');
-    filter: brightness(.5);
+    filter: brightness(.35);
     z-index: -1;
     pointer-events: none;
     /* filter: grayscale(100%); */
@@ -105,3 +116,35 @@
 .active .container{
     transform: translateX(-200px);
  }
+
+
+ .library{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50px);
+    column-gap: 5px;
+    row-gap: 5px;
+}
+.library .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(bg1.jpg); */
+    background-size: cover;
+    opacity: 0;
+}
+.library .item:nth-child(2){
+    /* background-image: url(bg2.jpg); */
+    transition-delay: 0.1s;
+}
+.library .item:nth-child(3){
+    /* background-image: url(bg3.jpg); */
+    transition-delay: 0.1s;
+}
+.library .item:nth-child(4){
+    /* background-image: url(bg4.jpg); */
+    transition-delay: 0.1s;
+}
+.library.active .item{
+    opacity: 1;
+}

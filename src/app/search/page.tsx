@@ -1,6 +1,6 @@
 import { getClient } from "@/lib/graphqlClient"
 import { gql } from "urql";
-import { ProductCard_keyboard } from "@/components/productscard";
+import { ProductCardKeyboard, ProductCardKeycap, ProductCardSwitch } from "@/components/productscard";
 import {Cart} from "@/components/shoppingcart";
 import { Keyboard,Switch,Keycap,Asset } from "@/types";
 const allKeyboard = gql`
@@ -10,29 +10,45 @@ query{
 		 	name,
 			price,
 			shortName,
+            brand,
+            type,
+            case,
+            form,
+            mode,
+            description,
 			profile{
 				url
 			}
 		}
-	},
+	}
     keycapCollection{
 		items{
-		 	name,
-			price,
+			name,
 			shortName,
+			price,
 			profile{
 				url
-			}
+			},
+			type,
+			layout,
+			material,
+			description
 		}
 	},
     switchCollection{
 		items{
-		 	name,
-			price,
+			name,
 			shortName,
+			price,
 			profile{
 				url
-			}
+			},
+			brand,
+			type,
+			lifeSpan,
+			force,
+			pin,
+			prelube
 		}
 	}
 }
@@ -64,18 +80,18 @@ export default async function HomePage(){
             <div className="container mx-auto min-h-screen shadow-xl">
                 <div className="grid grid-cols-5 gap-4 p-4">
                     {
-                        res.data.expCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
-                            return <ProductCard_keyboard product={obj}/>
+                        res.data.expCollection.items.map((obj: Keyboard & Asset,_: number) => {
+                            return <ProductCardKeyboard product={obj} key="Keyboard"/>
                         })
                     }
                     {
-                        res.data.keycapCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
-                            return <ProductCard_keyboard product={obj}/>
+                        res.data.keycapCollection.items.map((obj: Keycap & Asset,_: number) => {
+                            return <ProductCardKeycap product={obj} key="Keycap"/>
                         })
                     }
                     {
-                        res.data.switchCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
-                            return <ProductCard_keyboard product={obj}/>
+                        res.data.switchCollection.items.map((obj: Switch & Asset,_: number) => {
+                            return <ProductCardSwitch product={obj} key="Switch"/>
                         })
                     }
                 </div>
