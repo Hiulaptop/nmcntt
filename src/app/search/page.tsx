@@ -3,7 +3,7 @@ import { gql } from "urql";
 import { ProductCardKeyboard, ProductCardKeycap, ProductCardSwitch } from "@/components/productscard";
 import {Cart} from "@/components/shoppingcart";
 import { Keyboard,Switch,Keycap,Asset } from "@/types";
-const allKeyboard = gql`
+const allProduct = gql`
 query{
 	expCollection{
 		items{
@@ -50,14 +50,19 @@ query{
 			force,
 			pin,
 			prelube,
-            description
+            description,
+            pictureCollection{
+				items{
+					url
+				}
+			}  
 		}
 	}
 }
 `
 
 export default async function HomePage(){
-    const res = await getClient().query(allKeyboard,{})
+    const res = await getClient().query(allProduct,{})
 
 
     return (

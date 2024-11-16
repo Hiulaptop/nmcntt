@@ -22,7 +22,7 @@ export function ProductCardKeyboard({product, key}: {product: Keyboard & Asset, 
                         {product.name}  
                     </div>
                     <div id="price" className="w-full text-xs text-center select-none">
-                        {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
+                        {parseInt(product.price) != 0 ? Intl.NumberFormat("vn-VN", { style: 'currency', currency: 'VND' }).format(parseInt(product.price)) : "Không còn bán"}
                     </div>
                 </div>
                 <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
@@ -50,7 +50,7 @@ export function ProductCardKeycap({product, key}: {product: Keycap & Asset, key:
                         {product.name}  
                     </div>
                     <div id="price" className="w-full text-xs text-center select-none">
-                        {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
+                        {parseInt(product.price) != 0 ? Intl.NumberFormat("vn-VN", { style: 'currency', currency: 'VND' }).format(parseInt(product.price)) : "Không còn bán"}
                     </div>
                 </div>
                 <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">
@@ -79,7 +79,7 @@ export function ProductCardSwitch({product, key}: {product: Switch & Asset, key:
                         {product.name}  
                     </div>
                     <div id="price" className="w-full text-xs text-center select-none">
-                        {Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(parseInt(product.price))}
+                        {parseInt(product.price) != 0 ? Intl.NumberFormat("vn-VN", { style: 'currency', currency: 'VND' }).format(parseInt(product.price)) : "Không còn bán"}
                     </div>
                 </div>
                 <button onClick={() => addToCart({product: product,quantity: 1, type: key})} id="button" className="flex flex-row w-full h-12 gap-2 items-center justify-center mt-auto self-end font-bold text-center text-sm text-white  bg-black rounded-lg hover:transition hover:-translate-y-1">

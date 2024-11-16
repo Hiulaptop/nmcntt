@@ -4,7 +4,7 @@ import { ProductCardSwitch } from "@/components/productscard";
 import {Cart} from "@/components/shoppingcart";
 import { Switch,Asset } from "@/types";
 
-const allKeyboard = gql`
+const allSwitch = gql`
 query{
 	switchCollection{
 		items{
@@ -27,7 +27,7 @@ query{
 `
 
 export default async function HomePage(){
-    const res = await getClient().query(allKeyboard,{})
+    const res = await getClient().query(allSwitch,{})
 
 
     return (
@@ -46,22 +46,22 @@ export default async function HomePage(){
                     </svg>
                 </div>
                 
-                <a className="flex min-h-20 w-32 px-4 ml-[450px] justify-center items-center text-lg font-bold" href="./keyboard">
+                <a className="flex min-h-20 w-32 px-4 ml-[450px] justify-center items-center text-lg font-bold hover:bg-slate-300" href="/keyboard">
                     <p>
                         Keyboard
                     </p>
                 </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg bg-slate-300 font-bold" href="./switch">
+                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg bg-slate-300 font-bold hover:bg-slate-300" href="/switch">
                     <p>
                         Switch
                     </p>
                 </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold" href="./keycap">
+                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/keycap">
                     <p>
                         Keycap
                     </p>
                 </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold" href=".">
+                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/">
                     <p>
                         Thông tin
                     </p>
@@ -69,7 +69,7 @@ export default async function HomePage(){
 			</div>
 
             <Cart></Cart>
-            <div className="container mx-auto min-h-screen shadow-xl">
+            <div className="container mx-auto min-h-screen">
                 <div className="grid grid-cols-5 gap-4 p-4">
                     {
                         res.data.switchCollection.items.map((obj: Switch & Asset,_: number) => {
@@ -78,8 +78,41 @@ export default async function HomePage(){
                     }
                 </div>
             </div>
-            <div className="w-full min-h-96 bg-red-300">
-
+            <div className="grid grid-cols-3 gap-4 w-full min-h-96">
+                <div className="flex flex-col ml-24 gap-8 p-8 text-2xl font-bold text-black select-none">
+                    <p>
+                        Địa chỉ cửa hàng:
+                    </p>
+                    <p className="w-72 text-xl break-words font-semibold">
+                        229 Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh
+                    </p>
+                </div>
+                <div className="flex flex-col gap-8 p-8 text-2xl font-bold text-black select-none">
+                    <p>
+                        Mua sắp
+                    </p>
+                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keyboard">
+                        Keyboard
+                    </a>
+                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/switch">
+                        Switch
+                    </a>
+                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keycap">
+                        Keycap
+                    </a>
+                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/">
+                        Thông tin
+                    </a>
+                </div>
+                <div className="flex flex-col gap-8 p-8 text-2xl font-bold text-black">
+                    <p>
+                        Thông tin liên hệ
+                    </p>
+                    <p className="w-96 text-xl break-words font-semibold select-none">
+                        Nếu có nhu cầu đặt hàng các sản phẩm xách tay quốc tế hoặc các nhu cầu như custom bàn phím, thắc mắc, góp ý về sản phẩm xin hãy liên hệ qua email:
+                        <a href="mailto:tlthieu2428@clc.fitus.edu.vn" className="hover:text-blue-700"> tlthieu2428@clc.fitus.edu.vn</a>
+                    </p>
+                </div>
             </div>
         </>
     );

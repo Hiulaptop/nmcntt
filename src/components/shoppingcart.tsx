@@ -12,6 +12,7 @@ export function Cart() {
 	const cart = useCartStore((state) => state.cart)
 	const totalPrice = useCartStore((state) => state.totalPrice)
 	const totalItems = useCartStore((state) => state.totalItems)
+	
 
 	const [form, setForm] = useState(true)
 	function handleForm(){
@@ -37,8 +38,8 @@ export function Cart() {
 					<span className='text-xl font-bold'>{Intl.NumberFormat("vn-VN",{style: 'currency', currency: 'VND'}).format(totalPrice)}</span>
 				</div>
 				<div></div>
-				<button onClick={handleForm} className="h-12 w-24 self-end rounded-lg border-2 border-black bg-red-50 hover:bg-green-300">
-					OHSHIT
+				<button onClick={handleForm} className="h-12 w-24 text-lg font-bold self-end rounded-lg border-2 border-black hover:bg-black hover:text-white">
+					Đặt hàng
 				</button>
 				<Form isHidden={form} onExit={handleForm}>
 

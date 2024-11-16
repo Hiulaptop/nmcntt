@@ -4,8 +4,8 @@
 
 .intro{
     position: relative;
-    margin: auto;
-    
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .intro path {
@@ -148,3 +148,8 @@
 .library.active .item{
     opacity: 1;
 }
+
+.carousel-container {
+    width: 100%;
+    height: calc(100vw * 0.8);
+  }
