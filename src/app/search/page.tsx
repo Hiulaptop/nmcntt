@@ -32,7 +32,8 @@ query{
 			type,
 			layout,
 			material,
-			description
+			description,
+            brand
 		}
 	},
     switchCollection{
@@ -48,7 +49,8 @@ query{
 			lifeSpan,
 			force,
 			pin,
-			prelube
+			prelube,
+            description
 		}
 	}
 }
