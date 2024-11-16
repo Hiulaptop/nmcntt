@@ -1,9 +1,8 @@
 import { getClient } from "@/lib/graphqlClient"
-import { Keyboard,Switch,Keycap } from "@/types";
 import { gql } from "urql";
 import { ProductCard_keyboard } from "@/components/productscard";
 import {Cart} from "@/components/shoppingcart";
-
+import { Keyboard,Switch,Keycap,Asset } from "@/types";
 const allKeyboard = gql`
 query{
 	expCollection{
@@ -65,17 +64,17 @@ export default async function HomePage(){
             <div className="container mx-auto min-h-screen shadow-xl">
                 <div className="grid grid-cols-5 gap-4 p-4">
                     {
-                        res.data.expCollection.items.map((obj: any,i: string) => {
+                        res.data.expCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
                             return <ProductCard_keyboard product={obj}/>
                         })
                     }
                     {
-                        res.data.keycapCollection.items.map((obj: any,i: string) => {
+                        res.data.keycapCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
                             return <ProductCard_keyboard product={obj}/>
                         })
                     }
                     {
-                        res.data.switchCollection.items.map((obj: any,i: string) => {
+                        res.data.switchCollection.items.map((obj: (Keyboard | Keycap | Switch) & Asset,_: number) => {
                             return <ProductCard_keyboard product={obj}/>
                         })
                     }

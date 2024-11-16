@@ -24,7 +24,7 @@ export default function Info({ isHidden, onExit, product }: Props){
                             STH
                         </div>
                         <div className="font-bold text-lg text-center break-words select-none line-clamp-2">
-                            NAME HERE
+                            {product.product.name}
                         </div>
                         <div className="text-md text-center break-words select-none">
                             PRICE HERE

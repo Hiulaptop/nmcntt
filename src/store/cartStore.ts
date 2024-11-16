@@ -71,8 +71,8 @@ export const useCartStore = create(
                     }
                 }
             },
-            restartCart(product) {
-                set((state) => ({
+            restartCart() {
+                set(() => ({
                     cart: [],
                     totalItems: 0,
                     totalPrice: 0
