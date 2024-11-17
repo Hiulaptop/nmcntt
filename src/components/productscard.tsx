@@ -97,7 +97,7 @@ export function ProductCard({product, key}: {product: Product, key: string}){
     const reduceQuantity = useCartStore((state) => state.reduceQuantity)
     return(
         <>
-            <a className={`flex flex-row h-32 w-full p-2 gap-2 rounded-xl shadow-lg border-[1px] border-black hover:bg-slate-300`}>
+            <div className={`flex flex-row h-32 w-full p-2 gap-2 rounded-xl shadow-lg border-[1px] border-black hover:bg-slate-300`}>
                 <div id="img" className="w-16 h-16 my-auto items-center selft-center select-none">
                     <Image id={product.product.name} alt={product.product.shortName} src={product.product.profile.url} width="64" height="64" draggable={false} className="h-full w-full rounded-xl border-1 border-black"/>
                 </div>
@@ -124,7 +124,7 @@ export function ProductCard({product, key}: {product: Product, key: string}){
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </>
     );
 }

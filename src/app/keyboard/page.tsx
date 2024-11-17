@@ -3,6 +3,7 @@ import { gql } from "urql";
 import { ProductCardKeyboard } from "@/components/productscard";
 import { Cart } from "@/components/shoppingcart";
 import { Asset, Keyboard } from "@/types";
+import Link from "next/link";
 
 const allKeyboard = gql`
 query{
@@ -50,26 +51,26 @@ export default async function HomePage() {
                     </svg>
                 </div>
 
-                <a className="flex min-h-20 w-32 px-4 ml-[450px] justify-center items-center bg-slate-300 text-lg font-bold hover:bg-slate-300" href="Ư/keyboard">
+                <Link className="flex min-h-20 w-32 px-4 ml-[450px] justify-center items-center bg-slate-300 text-lg font-bold hover:bg-slate-300" href="Ư/keyboard">
                     <p>
                         Keyboard
                     </p>
-                </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/switch">
+                </Link>
+                <Link className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/switch">
                     <p>
                         Switch
                     </p>
-                </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/keycap">
+                </Link>
+                <Link className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/keycap">
                     <p>
                         Keycap
                     </p>
-                </a>
-                <a className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/">
+                </Link>
+                <Link className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/">
                     <p>
                         Thông tin
                     </p>
-                </a>
+                </Link>
             </div>
 
             <Cart></Cart>
@@ -95,18 +96,18 @@ export default async function HomePage() {
                     <p>
                         Mua sắp
                     </p>
-                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keyboard">
+                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keyboard">
                         Keyboard
-                    </a>
-                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/switch">
+                    </Link>
+                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/switch">
                         Switch
-                    </a>
-                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keycap">
+                    </Link>
+                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keycap">
                         Keycap
-                    </a>
-                    <a className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/">
+                    </Link>
+                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/">
                         Thông tin
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex flex-col gap-8 p-8 text-2xl font-bold text-black">
                     <p>
@@ -114,7 +115,7 @@ export default async function HomePage() {
                     </p>
                     <p className="w-96 text-xl break-words font-semibold select-none">
                         Nếu có nhu cầu đặt hàng các sản phẩm xách tay quốc tế hoặc các nhu cầu như custom bàn phím, thắc mắc, góp ý về sản phẩm xin hãy liên hệ qua email:
-                        <a href="mailto:tlthieu2428@clc.fitus.edu.vn" className="hover:text-blue-700"> tlthieu2428@clc.fitus.edu.vn</a>
+                        <Link href="mailto:tlthieu2428@clc.fitus.edu.vn" className="hover:text-blue-700"> tlthieu2428@clc.fitus.edu.vn</Link>
                     </p>
                 </div>
             </div>
