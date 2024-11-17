@@ -116,6 +116,12 @@ export function Info_Switch({ isHidden, onExit, product, type }: {
     type: string
 }) {
     const addToCart = useCartStore((state) => state.addToCart)
+    const images = product.pictureCollection.items.map((val, idx) => {
+        return {
+            src: val.url,
+            alt: product.shortName
+        }
+    })
     return (
         <>
             <div onClick={onExit} className={`${isHidden ? "hidden" : "visible"} fixed w-full h-full top-0 left-0 backdrop-blur-sm`}>
@@ -127,12 +133,7 @@ export function Info_Switch({ isHidden, onExit, product, type }: {
                 <div className="flex flex-row w-full h-full gap-2">
                     {/* pic */}
                     <div className="flex flex-col w-96 h-full gap-2 ">
-                        <div id="pic" className="w-96 h-96 rounded-xl border-2">
-                            PIC HERE
-                        </div>
-                        <div className="w-full h-24 border-2">
-                            STH
-                        </div>
+                    <Carousel images={images} isLoop={true} className="" style={{ maxHeight: 384, maxWidth: 384}} hasSizeButton="topLeft" hasThumbnails={true} hasLeftButton="centerLeft" hasRightButton="centerRight"></Carousel>
                         <div className="font-bold text-lg text-center break-words select-none line-clamp-2">
                             {product.name}
                         </div>
@@ -227,6 +228,12 @@ export function Info_Keycap({ isHidden, onExit, product, type }: {
     type: string
 }) {
     const addToCart = useCartStore((state) => state.addToCart)
+    const images = product.pictureCollection.items.map((val, idx) => {
+        return {
+            src: val.url,
+            alt: product.shortName
+        }
+    })
     return (
         <>
             <div onClick={onExit} className={`${isHidden ? "hidden" : "visible"} fixed w-full h-full top-0 left-0 backdrop-blur-sm`}>
@@ -238,12 +245,7 @@ export function Info_Keycap({ isHidden, onExit, product, type }: {
                 <div className="flex flex-row w-full h-full gap-2">
                     {/* pic */}
                     <div className="flex flex-col w-96 h-full gap-2 ">
-                        <div id="pic" className="w-96 h-96 rounded-xl border-2">
-                            PIC HERE
-                        </div>
-                        <div className="w-full h-24 border-2">
-                            STH
-                        </div>
+                    <Carousel images={images} isLoop={true} className="" style={{ maxHeight: 384, maxWidth: 384}} hasSizeButton="topLeft" hasThumbnails={true} hasLeftButton="centerLeft" hasRightButton="centerRight"></Carousel>
                         <div className="font-bold text-lg text-center break-words select-none line-clamp-2">
                             {product.name}
                         </div>

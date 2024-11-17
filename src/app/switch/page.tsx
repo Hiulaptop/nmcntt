@@ -20,7 +20,12 @@ query{
 			force,
 			pin,
 			prelube,
-            description
+            description,
+            pictureCollection{
+				items{
+					url
+				}
+			}  
 		}
 	}
 }
