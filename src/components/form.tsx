@@ -48,6 +48,9 @@ export default function Form({ isHidden, onExit }: Props){
                         </div>
                         <input className="flex px-2 w-[90%] h-10 mx-auto rounded-2xl border-2 border-black" type="text" id="fullname" name="fullname" value={locate} onChange={(e) => setLocate(e.target.value)}></input>
                     </div>
+                    <button onClick={() => {restartCart();onExit()}} className="flex self-end w-32 h-10 justify-center text-center items-center text-xl font-extrabold rounded-2xl border-2 border-black hover:bg-black hover:text-white">
+                        Đặt hàng
+                    </button>
                 </div>
             </div>
         </>

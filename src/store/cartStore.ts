@@ -13,7 +13,7 @@ interface Action {
     addToCart: (product: Product) => void,
     removeFromCart: (product: Product) => void,
     reduceQuantity: (product: Product) => void,
-    restartCart: (product: Product) => void
+    restartCart: () => void
 }
 
 export const useCartStore = create(

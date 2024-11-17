@@ -94,7 +94,7 @@ export default async function HomePage() {
                 </div>
                 <div className="flex flex-col gap-8 p-8 text-2xl font-bold text-black select-none">
                     <p>
-                        Mua sắp
+                        Mua sắm
                     </p>
                     <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keyboard">
                         Keyboard
