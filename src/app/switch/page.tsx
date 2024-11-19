@@ -67,7 +67,7 @@ export default async function HomePage(){
                         Keycap
                     </p>
                 </Link>
-                <Link className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/">
+                <Link className="flex min-h-20 w-32 px-4 ml-4 justify-center items-center text-lg font-bold hover:bg-slate-300" href="/aboutus">
                     <p>
                         Thông tin
                     </p>
@@ -106,7 +106,7 @@ export default async function HomePage(){
                     <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/keycap">
                         Keycap
                     </Link>
-                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/">
+                    <Link className="text-lg font-semibold underline hover:text-blue-700 w-fit" href="/aboutus">
                         Thông tin
                     </Link>
                 </div>
